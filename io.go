@@ -590,7 +590,7 @@ func (discard) WriteString(ctx context.Context, s string) (int, error) {
 }
 
 var blackHolePool = sync.Pool{
-	New: func() any {
+	New: func() interface{} {
 		b := make([]byte, 8192)
 		return &b
 	},
